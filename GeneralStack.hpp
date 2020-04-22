@@ -9,41 +9,81 @@ class Stack {
 		
 	public:
 		//Default constructor
-		Stack();
+		Stack(){
+			_size = 0;
+		}
 
 		//Default copy constructor
-		Stack(const Stack &stack);
+		Stack(Stack &stack){
+			_data = stack._data;
+			_size = stack._size;
+		}
 
 		//Getters
-		T top() const;
+		T top() const{
+			return _data.back();
+		}
 
-		size_t size() const;
+		size_t size() const{
+			return _size;
+		}
 
 		//Adding data to the data structure
-		void push(T value);
+		void push(T value){
+			_data.push_back(value);
+			_size += 1;	
+		}
 
 		//Removing data from the data structure
-		void pop();
+		void pop(){
+			_data.pop_back();
+			_size -= 1;
+		}
 
 		bool search(T value) {
 			return _data.search(value);
 		}
 
 
-		bool empty() const;
+		bool empty() const{	
+			return _data.empty();
+		}
 
-		void print();
+		void print(){
+			//_data.print();
+			std::cout << *this << std::endl;
+		}
 
 		//This overloaded operator is empty, please implement
-		Stack<T> operator=(const Stack<T> &stack) {
-			;
+		Stack<T> operator=(Stack<T> &stack) {
+			_data = stack._data;
+			return *this;
 		}
 
 		template <class S>
-		friend std::ostream &operator<<(std::ostream &out, const Stack<S> &stack);
+		friend std::ostream &operator<<(std::ostream &out, const Stack<S> &stack){
+			List<T> _temp = stack._data;
+			for (int i = 0; i < stack._size; i++){
+				out << _temp.back() << " ";
+				_temp.pop_back();
+			}
+			return out;
+		}
+		/*	
 		template <class S>
-		friend bool operator==(const Stack<S> &left_side, const Stack<S> &right_side);
+		friend bool operator==(Stack<S> &left_side, Stack<S> &right_side){
+			if (left_side.size() == right_side.size()){
+				if (left_side._data == right_side._data){
+					return true;
+				}
+			}
+			else{
+				return false;
+			}
+		}*/
 		template <class S>
 		friend bool operator!=(const Stack<S> &left_side, const Stack<S> &right_side);
 
 };
+
+
