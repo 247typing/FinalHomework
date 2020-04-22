@@ -61,14 +61,7 @@ class Stack {
 		}
 
 		template <class S>
-		friend std::ostream &operator<<(std::ostream &out, const Stack<S> &stack){
-			List<T> _temp = stack._data;
-			for (int i = 0; i < stack._size; i++){
-				out << _temp.back() << " ";
-				_temp.pop_back();
-			}
-			return out;
-		}
+		friend std::ostream &operator<<(std::ostream &out, const Stack<S> &stack);
 		/*	
 		template <class S>
 		friend bool operator==(Stack<S> &left_side, Stack<S> &right_side){
@@ -86,4 +79,13 @@ class Stack {
 
 };
 
+template <class T, class S>
+std::ostream &operator<<(std::ostream &out, const Stack<S> &stack){
+	List<T> _temp = stack._data;
+	for (int i = 0; i < stack._size; i++){
+		out << _temp.back() << " ";
+		_temp.pop_back();
+	}
+	return out;
+}
 

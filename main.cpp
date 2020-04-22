@@ -26,7 +26,7 @@ int main() {
 	s2.pop();
 	s2.push(14.98);
 	std::cout << "Size of s2: " << s2.size() << std::endl;
-		
+			
 	Stack<std::string> s3;
 	s3.push("pie");
 	s3.push("love");
