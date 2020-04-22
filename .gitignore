@@ -1,6 +1,5 @@
 Stack.hpp
 Queue.hpp
-GeneralList.hpp
 
 *.drawio
 Makefile
