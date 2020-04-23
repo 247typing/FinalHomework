@@ -141,6 +141,16 @@ class List {
 			std::cout << std::endl;
 		}
 
+		bool search(Data search_value) {
+		    Dlist *temp;
+		    for(temp=_front; temp!=nullptr; temp=temp->next) {
+		      if(temp->value == search_value) {
+			return true;
+		      }
+		    }
+		    return false;
+		}
+
 		void print_back(){
 			Dlist *temp;
 			for(temp=_back; temp != nullptr; temp=temp->prev){
@@ -210,4 +220,16 @@ class List {
 				}
 			}
 		}
+		
+		template <class V>
+		friend std::ostream &operator<<(std::ostream &os, const List<V> &list);
+
+}
 };
+
+template <class V>
+std::ostream &operator<<(std::ostream &os, const List<V> &list) {
+    for(auto *iter = list._front; iter != nullptr; iter = iter->next) {
+        os << iter->value << " ";
+    }
+    return os;
