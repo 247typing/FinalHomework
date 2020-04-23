@@ -79,13 +79,22 @@ class Stack {
 
 };
 
-template <class T, class S>
+//template <class T, class S>
+template <class S>
 std::ostream &operator<<(std::ostream &out, const Stack<S> &stack){
-	List<T> _temp = stack._data;
+	for (auto j: stack._data){
+		out << j << " ";
+	}
+	return out;
+}
+	
+	
+	/*List<T> _temp = stack._data;
 	for (int i = 0; i < stack._size; i++){
 		out << _temp.back() << " ";
 		_temp.pop_back();
 	}
-	return out;
-}
+	return out;*/
+
+//}
 
