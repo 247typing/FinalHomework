@@ -223,8 +223,6 @@ class List {
 		
 		template <class V>
 		friend std::ostream &operator<<(std::ostream &os, const List<V> &list);
-
-}
 };
 
 template <class V>
@@ -233,3 +231,4 @@ std::ostream &operator<<(std::ostream &os, const List<V> &list) {
         os << iter->value << " ";
     }
     return os;
+}

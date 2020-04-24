@@ -50,7 +50,6 @@ class Stack {
 		}
 
 		void print(){
-			//_data.print();
 			std::cout << *this << std::endl;
 		}
 
@@ -62,39 +61,42 @@ class Stack {
 
 		template <class S>
 		friend std::ostream &operator<<(std::ostream &out, const Stack<S> &stack);
-		/*	
+			
 		template <class S>
-		friend bool operator==(Stack<S> &left_side, Stack<S> &right_side){
-			if (left_side.size() == right_side.size()){
-				if (left_side._data == right_side._data){
-					return true;
-				}
-			}
-			else{
-				return false;
-			}
-		}*/
+		friend bool operator==(Stack<S> &left_side, Stack<S> &right_side);
+		
 		template <class S>
-		friend bool operator!=(const Stack<S> &left_side, const Stack<S> &right_side);
+		friend bool operator!=(Stack<S> &left_side, Stack<S> &right_side);
 
 };
 
-//template <class T, class S>
 template <class S>
 std::ostream &operator<<(std::ostream &out, const Stack<S> &stack){
-	for (auto j: stack._data){
-		out << j << " ";
-	}
+	out << stack._data;
 	return out;
 }
 	
-	
-	/*List<T> _temp = stack._data;
-	for (int i = 0; i < stack._size; i++){
-		out << _temp.back() << " ";
-		_temp.pop_back();
+template <class S>
+bool operator==(Stack<S> &left_side, Stack<S> &right_side){
+	if (left_side.size() == right_side.size()){
+		if (left_side._data == right_side._data){
+			return true;
+		}
 	}
-	return out;*/
+	else{
+		return false;
+	}
+}
 
-//}
-
+template <class S>
+bool operator!=(Stack<S> &left_side, Stack<S> &right_side){
+	if (left_side.size() != right_side.size()){
+		return true;
+	}
+	else if (left_side._data == right_side._data){
+		return false;
+	}
+	else{
+		return true;
+	}
+}

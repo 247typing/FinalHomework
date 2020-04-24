@@ -17,7 +17,6 @@ int main() {
 	s.push(5.78);
 	s.push(8.03);
 	s.push(9.12);
-	s.print(); //remove	
 	std::cout << std::endl << s << std::endl;
 	std::cout << "Top of the stack: " << s.top() << std::endl;
 
@@ -26,14 +25,14 @@ int main() {
 	s2.pop();
 	s2.push(14.98);
 	std::cout << "Size of s2: " << s2.size() << std::endl;
-			
+				
 	Stack<std::string> s3;
 	s3.push("pie");
 	s3.push("love");
 	s3.push("I");
 	s3.print();
  	std::cout << std::endl;
-	/*
+
 	std::cout << "Creating queues!" << std::endl;
 	Queue<int> que;
 	que.enqueue(5);
@@ -48,7 +47,7 @@ int main() {
 	std::cout << "Front of queue: " << quoi.front();
 	std::cout << ", back of queue: " << quoi.back() << std::endl;
 	std::cout << quoi << std::endl;
-
+	
 	int search_term = 24;
 	if(quoi.search(search_term)) {
 		std::cout << search_term << " is in the queue" << std::endl;
@@ -56,6 +55,6 @@ int main() {
 	else {
 		std::cout << search_term << " is not in the queue" << std::endl;
 	}
-	*/
+	
 	return 0;
 }
